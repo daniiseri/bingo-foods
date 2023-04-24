@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"> </script>
+
+  <style>
+    *{
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    @media print {
+    table { 
+        page-break-after: always; 
+    }
+}
+
+    header {
+      padding: 16px;
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    header button {
+      height: 60px;
+      width: 60px;
+      border-radius: 50%;
+    }
+
+    #content {
+      width: 100%;
+      margin-top: 60px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 60px;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    td {
+      padding: 4px;
+      border: solid 2px;
+      vertical-align: middle;
+      text-align: center;
+    }
+
+    img {
+      width: 60px;
+      height: 76px;
+    }
+
+    .image {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    label {
+      max-width: 60px;
+    }
+
+    button {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    button img {
+      width: 20px;
+      height: 20px;
+    }
+
+    button div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <button id='generate-button' class="add"><img
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/OOjs_UI_icon_add.svg/1024px-OOjs_UI_icon_add.svg.png" /></button>
+    <button id='generate-10' class="add">
+      <div><img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/OOjs_UI_icon_add.svg/1024px-OOjs_UI_icon_add.svg.png" />10
+      </div>
+    </button>
+    <button id="print-button"><img src="https://www.svgrepo.com/show/166925/printing-paper.svg" /></button>
+
+    <span id="count"></span>
+  </header>
+
+  <main>
+    <div id='content'>
+    </div>
+  </main>
+
+</body>
+<script type="text/javascript" src="./index.js"></script>
+
+</script>
+
+</html>
