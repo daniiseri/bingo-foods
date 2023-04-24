@@ -1,4 +1,11 @@
 const data = {
+  letters : [
+    'B',
+    'I',
+    'N',
+    'G',
+    'O'
+  ],
   foods: [
     {
       name: "maçã",
@@ -232,12 +239,32 @@ const data = {
 };
 
 const content = document.getElementById('content');
+const modal = document.getElementById('modal');
 
 const generateButton = document.getElementById('generate-button');
 const generate10 = document.getElementById('generate-10');
 const printButton = document.getElementById('print-button');
+const openRuffle = document.getElementById('open-raffle');
+const closeButton = document.getElementById('close');
+const ruffleButton = document.getElementById('raffle');
 
 const count = document.getElementById("count");
+
+const letter = document.querySelector('#modal h1');
+const imageRaffle = document.getElementById("raffle-img");
+const nameFood = document.querySelector('#modal h6');
+
+ruffleButton.addEventListener('click', () => {
+  raffle();
+});
+
+openRuffle.addEventListener('click', () => {
+  modal.style.display = 'flex';
+})
+
+closeButton.addEventListener('click', () => {
+  modal.style.display = 'none';
+})
 
 printButton.addEventListener('click', () => {
   generateButton.style.display = 'none';
@@ -272,7 +299,7 @@ function generate() {
   thead.appendChild(createTd({ value: 'I' }));
   thead.appendChild(createTd({ value: 'N' }));
   thead.appendChild(createTd({ value: 'G' }));
-  thead.appendChild(createTd({ value: '0' }));
+  thead.appendChild(createTd({ value: 'O' }));
 
   table.appendChild(thead);
 
@@ -326,7 +353,7 @@ function generate() {
 
     const div = document.createElement('div');
 
-    div.setAttribute('class', 'image');
+    div.setAttribute('class', 'imageRaffle = document.querySelector');
 
     const img = document.createElement('img');
 
@@ -347,5 +374,29 @@ function generate() {
     td.appendChild(div);
 
     return td;
+  }
+}
+
+function raffle(){
+  letter.innerText = generateLetter();
+
+  const food = generateFood();
+
+  imageRaffle.setAttribute('src', food.url);
+
+  nameFood.innerText = food.name.charAt(0) + food.name.slice(1);
+
+  function generateLetter(){
+    const index = Math.floor(Math.random() * data.letters.length);
+    const currentLetter = data.letters[index];
+
+    return currentLetter;
+  }
+
+  function generateFood(){
+    const index = Math.floor(Math.random() * data.foods.length);
+    const currentFood = data.foods[index];
+
+    return currentFood;
   }
 }
